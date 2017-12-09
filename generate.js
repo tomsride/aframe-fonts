@@ -11,7 +11,10 @@ if (args.length < 2) {
 let pathToFont = args[0], name = args[1];
 
 // Generate MSDF font..
-generateBMFont(path.join(pathToFont, `${name}.ttf`), (err, textures, font) => {
+const options = {
+  charset: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefhijklmnopqrstuvwxyz0123456789éàèäöüÄÖÜ,.;:-_()+*ç%&/\=<>!$£°§ ',
+};
+generateBMFont(path.join(pathToFont, `${name}.ttf`), options, (err, textures, font) => {
   if (err) {
     return console.log(`Error on ${name}`, err);
   };
